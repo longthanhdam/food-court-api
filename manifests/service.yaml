@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: food-court-api-service
-  namespace: price  # namespace the same deployement
+  namespace: food-court  # namespace the same deployement
 spec:
   selector:
     app: food-court-api-app  #  Pod choose Deployment label
