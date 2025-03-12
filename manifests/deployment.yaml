@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-court-api-app
+  namespace: food-court
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: food-court-api-app
+  template:
+    metadata:
+      labels:
+        app: food-court-api-app
+    spec:
+      containers:
+      - name: food-court-api-app
+        image: mmregistry.mmvietnam.com:5000/food_court_api_dev:latest
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: mmregistry-secret

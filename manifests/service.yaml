@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: food-court-api-service
+  namespace: price  # namespace the same deployement
+spec:
+  selector:
+    app: food-court-api-app  #  Pod choose Deployment label
+  ports:
+    - protocol: TCP
+      port: 3000           # Port extenal
+      targetPort: 3000    # Port in container
+  type: LoadBalancer     # LoadBalancer provide IP address
